@@ -19,7 +19,7 @@ function onFileChange(e) {
 function sendData() {
   axios
     .post(
-      "https://testbackend-ya01.onrender.com/docs#/users/create_user_open_api_v1_users_register_post",
+      "https://testbackend-ya01.onrender.com/api/v1/openapi.json",
 
       {
         fullname: inputField.value.fullName,
@@ -30,7 +30,7 @@ function sendData() {
         receipt: inputField.value.receipt.files,
       }
     )
-    .then((response) => console.log(response));
+    .then((response) => console.log(response, "hello"));
 
   inputField.value.address = "";
   inputField.value.email = "";
