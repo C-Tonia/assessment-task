@@ -18,9 +18,26 @@ function onFileChange(e) {
 }
 function sendData() {
   axios
-    .post("/api/v1/users/register", inputField.value)
+    .post(
+      "https://testbackend-ya01.onrender.com/docs#/users/create_user_open_api_v1_users_register_post",
+
+      {
+        fullname: inputField.value.fullName,
+        phone: inputField.value.phone,
+        email: inputField.value.email,
+        address: inputField.value.address,
+        laptop: inputField.value.laptop,
+        receipt: inputField.value.receipt.files,
+      }
+    )
     .then((response) => console.log(response));
-  console.log(inputField.value);
+
+  inputField.value.address = "";
+  inputField.value.email = "";
+  inputField.value.fullName = "";
+  inputField.value.receipt = "";
+  inputField.value.laptop = "";
+  inputField.value.phone = "";
 }
 </script>
 <template>
