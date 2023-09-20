@@ -21,14 +21,14 @@ function sendData() {
     .post(
       "https://testbackend-ya01.onrender.com/api/v1/openapi.json",
 
-      {
+      JSON.stringify({
         fullname: inputField.value.fullName,
         phone: inputField.value.phone,
         email: inputField.value.email,
         address: inputField.value.address,
         laptop: inputField.value.laptop,
         receipt: inputField.value.receipt.files,
-      }
+      })
     )
     .then((response) => console.log(response, "hello"));
 
